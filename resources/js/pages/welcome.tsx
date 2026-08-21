@@ -168,7 +168,7 @@ function SectionTitle({
         <div className="mb-6 flex items-end justify-between gap-4">
             <div>
                 {eyebrow && (
-                    <p className="mb-1 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-800">
+                    <p className="mb-1 text-xs font-semibold tracking-[0.22em] text-emerald-800 uppercase">
                         {eyebrow}
                     </p>
                 )}
@@ -203,7 +203,7 @@ function Stat({
         <div className="flex items-center gap-4 border-stone-200 px-5 py-4 first:border-l-0 md:border-l">
             <Icon className="h-9 w-9 shrink-0 stroke-[1.3] text-emerald-900" />
             <div>
-                <p className="text-xs uppercase tracking-wider text-stone-500">
+                <p className="text-xs tracking-wider text-stone-500 uppercase">
                     {title}
                 </p>
                 <p className="font-serif text-xl text-stone-900">{value}</p>
@@ -223,7 +223,7 @@ export default function Welcome() {
             <div className="min-h-screen bg-[#f8f7f2] text-stone-800">
                 {/* Header */}
                 <header className="sticky top-0 z-50 border-b border-stone-200 bg-white/95 backdrop-blur">
-                    <div className="mx-auto flex container items-center justify-between px-4 py-3 md:px-6">
+                    <div className="container mx-auto flex items-center justify-between px-4 py-3 md:px-6">
                         <a href="#" className="flex items-center gap-3">
                             <div className="h-11 w-11 overflow-hidden rounded-full border border-stone-200 bg-stone-100">
                                 <img
@@ -259,10 +259,11 @@ export default function Welcome() {
                                 <a
                                     key={item}
                                     href={`#${item.toLowerCase().replaceAll(' ', '-')}`}
-                                    className={`relative py-2 text-sm font-medium transition ${index === 0
+                                    className={`relative py-2 text-sm font-medium transition ${
+                                        index === 0
                                             ? 'text-emerald-900'
                                             : 'text-stone-600 hover:text-emerald-900'
-                                        }`}
+                                    }`}
                                 >
                                     {item}
                                     {index === 0 && (
@@ -275,7 +276,7 @@ export default function Welcome() {
                         <a
                             href="#contact"
                             // className="hidden bg-emerald-950 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-800 md:block"
-                            className="hidden rounded-full bg-emerald-800 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 ease-out hover:bg-emerald-950 hover:shadow-lg hover:shadow-emerald-950/30 hover:scale-105 md:block"
+                            className="hidden rounded-full bg-emerald-800 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 ease-out hover:scale-105 hover:bg-emerald-950 hover:shadow-lg hover:shadow-emerald-950/30 md:block"
                         >
                             Contact Office
                         </a>
@@ -295,7 +296,7 @@ export default function Welcome() {
 
                     {menuOpen && (
                         <nav className="border-t border-stone-200 bg-white px-5 py-4 lg:hidden">
-                            <div className="mx-auto flex container flex-col gap-3">
+                            <div className="container mx-auto flex flex-col gap-3">
                                 {[
                                     'Home',
                                     'About',
@@ -321,69 +322,10 @@ export default function Welcome() {
                 </header>
 
                 {/* Hero */}
-                {/* <section id="home" className="relative overflow-hidden bg-emerald-950">
-                    <div className="absolute inset-0">
-                        <img
-                            src={`${A}/hero.jpg`}
-                            alt=""
-                            className="h-full w-full object-cover opacity-55"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-r from-emerald-950 via-emerald-950/85 to-emerald-950/20" />
-                    </div>
-
-                    <div className="relative mx-auto grid min-h-[510px] max-w-7xl items-center px-4 md:px-6 lg:grid-cols-12">
-                        <div className="z-10 py-16 lg:col-span-6 lg:py-20">
-                            <p className="mb-3 text-sm font-medium tracking-wide text-amber-400">
-                                Sherpur–1 Constituency
-                            </p>
-                            <h1 className="max-w-xl font-serif text-4xl font-semibold leading-[0.98] text-white sm:text-5xl md:text-6xl">
-                                Sunsila Jabrin
-                                <br />
-                                Priyanka
-                            </h1>
-                            <p className="mt-4 font-serif text-xl text-amber-400 md:text-2xl">
-                                Member of Parliament — Sherpur–1
-                            </p>
-                            <p className="mt-5 max-w-md text-sm leading-6 text-stone-200">
-                                Serving the people of Sherpur–1 with
-                                responsibility, accessibility and a commitment
-                                to meaningful progress.
-                            </p>
-
-                            <div className="mt-7 flex flex-wrap gap-3">
-                                <a
-                                    href="#contact"
-                                    className="inline-flex items-center gap-2 border border-emerald-700 bg-emerald-900/80 px-5 py-3 text-xs font-semibold text-white transition hover:bg-emerald-800"
-                                >
-                                    <MessageCircle className="h-4 w-4" />
-                                    Contact Constituency Office
-                                </a>
-                                <a
-                                    href="#parliamentary-work"
-                                    className="inline-flex items-center gap-2 border border-white/50 px-5 py-3 text-xs font-semibold text-white transition hover:bg-white hover:text-emerald-950"
-                                >
-                                    Explore My Work
-                                    <ArrowRight className="h-4 w-4" />
-                                </a>
-                            </div>
-                        </div>
-
-                        <div className="relative hidden h-full lg:col-span-6 lg:block">
-                            <img
-                                src={`${A}/map.png`}
-                                alt="Sherpur-1 constituency map"
-                                className="absolute left-0 top-1/2 w-48 -translate-y-1/2 opacity-70"
-                            />
-                            <img
-                                src={`${A}/portrait.png`}
-                                alt="Dr. Sunsila Jabrin Priyanka"
-                                className="absolute bottom-0 right-3 z-10 max-h-[490px] max-w-none object-contain"
-                            />
-                        </div>
-                    </div>
-                </section> */}
-                {/* Hero */}
-                <section id="home" className="relative overflow-hidden bg-emerald-950">
+                <section
+                    id="home"
+                    className="relative overflow-hidden bg-emerald-950"
+                >
                     {/* Background Video */}
                     <div className="absolute inset-0">
                         <video
@@ -401,14 +343,13 @@ export default function Welcome() {
                         <div className="absolute inset-0 bg-gradient-to-r from-emerald-950 via-emerald-950/75 to-emerald-950/50" />
                     </div>
 
-                    <div className="relative mx-auto grid min-h-[75vh] container items-center px-4 md:px-6 lg:grid-cols-12">
-
+                    <div className="relative container mx-auto grid min-h-[75vh] items-center px-4 md:px-6 lg:grid-cols-12">
                         <div className="z-10 py-16 lg:col-span-6 lg:py-20">
                             <p className="mb-3 text-sm font-medium tracking-wide text-amber-400">
                                 Sherpur–1 Constituency
                             </p>
 
-                            <h1 className="max-w-xl font-serif text-4xl font-semibold leading-[0.98] text-white sm:text-5xl md:text-6xl">
+                            <h1 className="max-w-xl font-serif text-4xl leading-[0.98] font-semibold text-white sm:text-5xl md:text-6xl">
                                 Dr. Sunsila Jabrin
                                 <br />
                                 Priyanka
@@ -419,15 +360,15 @@ export default function Welcome() {
                             </p>
 
                             <p className="mt-5 max-w-md text-sm leading-6 text-stone-200">
-                                Serving the people of Sherpur–1 with responsibility,
-                                accessibility and a commitment to meaningful progress.
+                                Serving the people of Sherpur–1 with
+                                responsibility, accessibility and a commitment
+                                to meaningful progress.
                             </p>
 
                             <div className="mt-7 flex flex-wrap gap-3">
                                 <a
                                     href="#contact"
-                                    // className="inline-flex items-center gap-2 border border-emerald-700 bg-emerald-900/80 px-5 py-3 text-xs font-semibold text-white transition hover:bg-emerald-800"
-                                    className="inline-flex items-center gap-2 rounded-full border border-emerald-700 bg-emerald-900/80 px-5 py-3 text-xs font-semibold text-white transition-all duration-300 ease-out hover:bg-emerald-800 hover:scale-105"
+                                    className="inline-flex items-center gap-2 rounded-full border border-emerald-700 bg-emerald-900/80 px-5 py-3 text-xs font-semibold text-white transition-all duration-300 ease-out hover:scale-105 hover:bg-emerald-800"
                                 >
                                     <MessageCircle className="h-4 w-4" />
                                     Contact Constituency Office
@@ -435,8 +376,7 @@ export default function Welcome() {
 
                                 <a
                                     href="#parliamentary-work"
-                                    // className="inline-flex items-center gap-2 border border-white/50 px-5 py-3 text-xs font-semibold text-white transition hover:bg-white hover:text-emerald-950"
-                                    className="inline-flex items-center gap-2 rounded-full border border-white/50 px-5 py-3 text-xs font-semibold text-white transition-all duration-300 ease-out hover:bg-white hover:text-emerald-950 hover:scale-105"
+                                    className="inline-flex items-center gap-2 rounded-full border border-white/50 px-5 py-3 text-xs font-semibold text-white transition-all duration-300 ease-out hover:scale-105 hover:bg-white hover:text-emerald-950"
                                 >
                                     Explore My Work
                                     <ArrowRight className="h-4 w-4" />
@@ -449,20 +389,20 @@ export default function Welcome() {
                             <img
                                 src={`${A}/map.png`}
                                 alt="Sherpur-1 constituency map"
-                                className="absolute left-0 top-1/2 w-96 h-auto -translate-y-1/2 opacity-70"
+                                className="absolute top-1/2 left-0 h-auto w-96 -translate-y-1/2 opacity-70"
                             />
 
                             <img
                                 src={`${A}/portrait.png`}
                                 alt="Dr. Sunsila Jabrin Priyanka"
-                                className="absolute bottom-0 right-3 z-10 max-h-[490px] max-w-none object-contain"
+                                className="absolute right-3 bottom-0 z-10 max-h-[490px] max-w-none object-contain"
                             />
                         </div>
                     </div>
                 </section>
 
                 {/* Stats */}
-                <section className="relative z-20 mx-auto -mt-1 container px-4 md:-mt-10">
+                <section className="relative z-20 container mx-auto -mt-1 px-4 md:-mt-10">
                     <div className="grid overflow-hidden border border-stone-200 bg-white shadow-lg md:grid-cols-4">
                         <Stat
                             icon={Landmark}
@@ -493,7 +433,10 @@ export default function Welcome() {
 
                 <main>
                     {/* About */}
-                    <section id="about" className="mx-auto container px-4 py-14 md:px-6 md:py-16">
+                    <section
+                        id="about"
+                        className="container mx-auto px-4 py-14 md:px-6 md:py-16"
+                    >
                         <div className="grid items-center gap-10 lg:grid-cols-12">
                             <div className="lg:col-span-4">
                                 <img
@@ -555,7 +498,7 @@ export default function Welcome() {
 
                             <div className="border-l border-stone-200 pl-7 lg:col-span-3">
                                 <Quote className="h-8 w-8 text-emerald-900" />
-                                <p className="mt-3 font-serif text-lg italic leading-7 text-stone-700">
+                                <p className="mt-3 font-serif text-lg leading-7 text-stone-700 italic">
                                     My commitment is to listen, to serve, and to
                                     work together for a stronger, more
                                     prosperous Sherpur–1.
@@ -572,7 +515,7 @@ export default function Welcome() {
                         id="constituency"
                         className="border-y border-stone-200 bg-white"
                     >
-                        <div className="mx-auto container px-4 py-14 md:px-6">
+                        <div className="container mx-auto px-4 py-14 md:px-6">
                             <div className="grid items-center gap-8 lg:grid-cols-12">
                                 <div className="lg:col-span-4">
                                     <SectionTitle title="Serving Sherpur–1" />
@@ -585,7 +528,10 @@ export default function Welcome() {
 
                                     <div className="mt-7 grid grid-cols-3 border border-stone-200">
                                         {[
-                                            ['Area Overview', 'Rural & Riverine'],
+                                            [
+                                                'Area Overview',
+                                                'Rural & Riverine',
+                                            ],
                                             ['Population', '00,000+'],
                                             ['Unions', '00'],
                                         ].map(([label, value]) => (
@@ -642,7 +588,7 @@ export default function Welcome() {
                     </section>
 
                     {/* Priorities */}
-                    <section className="mx-auto container px-4 py-12 md:px-6">
+                    <section className="container mx-auto px-4 py-12 md:px-6">
                         <SectionTitle title="Constituency Priorities" />
                         <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
                             {priorities.map(({ icon: Icon, title, text }) => (
@@ -667,7 +613,7 @@ export default function Welcome() {
                         id="parliamentary-work"
                         className="border-y border-stone-200 bg-white"
                     >
-                        <div className="mx-auto container px-4 py-14 md:px-6">
+                        <div className="container mx-auto px-4 py-14 md:px-6">
                             <SectionTitle title="Parliamentary Work" />
 
                             <div className="grid gap-8 lg:grid-cols-4">
@@ -700,13 +646,21 @@ export default function Welcome() {
 
                                 <div className="lg:col-span-3">
                                     <div className="relative mt-6 grid grid-cols-5">
-                                        <div className="absolute left-0 right-0 top-3 border-t border-emerald-900" />
+                                        <div className="absolute top-3 right-0 left-0 border-t border-emerald-900" />
                                         {[
                                             ['00', 'Sessions', 'Attended'],
                                             ['00', 'Questions', 'Submitted'],
                                             ['00', 'Speeches', 'Delivered'],
-                                            ['00', 'Committee', 'Contributions'],
-                                            ['00', 'Bills & Motions', 'Supported'],
+                                            [
+                                                '00',
+                                                'Committee',
+                                                'Contributions',
+                                            ],
+                                            [
+                                                '00',
+                                                'Bills & Motions',
+                                                'Supported',
+                                            ],
                                         ].map(([number, a, b]) => (
                                             <div
                                                 key={a}
@@ -727,7 +681,7 @@ export default function Welcome() {
 
                                     <div className="mt-8 flex items-end justify-between overflow-hidden bg-[#f3eee0] px-5 pt-5">
                                         <div className="pb-5">
-                                            <p className="max-w-lg font-serif text-sm italic text-stone-700">
+                                            <p className="max-w-lg font-serif text-sm text-stone-700 italic">
                                                 Working in Parliament to
                                                 represent your voice, address
                                                 national issues and support
@@ -751,7 +705,7 @@ export default function Welcome() {
                     {/* Initiatives */}
                     <section
                         id="initiatives"
-                        className="mx-auto container px-4 py-14 md:px-6"
+                        className="container mx-auto px-4 py-14 md:px-6"
                     >
                         <SectionTitle title="Public-Service Initiatives" />
                         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -766,12 +720,12 @@ export default function Welcome() {
                                             alt={item.title}
                                             className="h-32 w-full object-cover"
                                         />
-                                        <span className="absolute left-2 top-2 bg-amber-400 px-2 py-1 text-xs font-semibold text-stone-900">
+                                        <span className="absolute top-2 left-2 bg-amber-400 px-2 py-1 text-xs font-semibold text-stone-900">
                                             {item.status}
                                         </span>
                                     </div>
                                     <div className="p-4">
-                                        <p className="text-xs font-semibold uppercase tracking-wider text-emerald-800">
+                                        <p className="text-xs font-semibold tracking-wider text-emerald-800 uppercase">
                                             {item.category} · {item.location}
                                         </p>
                                         <h3 className="mt-2 font-serif text-base font-semibold text-stone-900">
@@ -798,9 +752,9 @@ export default function Welcome() {
                         id="gallery"
                         className="border-y border-stone-200 bg-white"
                     >
-                        <div className="mx-auto grid container gap-5 px-4 py-10 md:grid-cols-12 md:px-6">
+                        <div className="container mx-auto grid gap-5 px-4 py-10 md:grid-cols-12 md:px-6">
                             <div className="md:col-span-2">
-                                <h2 className="font-serif text-xl font-semibold leading-6 text-stone-900">
+                                <h2 className="font-serif text-xl leading-6 font-semibold text-stone-900">
                                     Connected to
                                     <br />
                                     the Community
@@ -825,10 +779,9 @@ export default function Welcome() {
                                         key={src}
                                         src={src}
                                         alt={`Community engagement ${index + 1}`}
-                                        className={`h-32 w-full object-cover ${index === 0
-                                                ? 'sm:col-span-1'
-                                                : ''
-                                            }`}
+                                        className={`h-32 w-full object-cover ${
+                                            index === 0 ? 'sm:col-span-1' : ''
+                                        }`}
                                     />
                                 ))}
                             </div>
@@ -838,9 +791,12 @@ export default function Welcome() {
                     {/* News */}
                     <section
                         id="news"
-                        className="mx-auto container px-4 py-12 md:px-6"
+                        className="container mx-auto px-4 py-12 md:px-6"
                     >
-                        <SectionTitle title="Latest Updates" action="View All News" />
+                        <SectionTitle
+                            title="Latest Updates"
+                            action="View All News"
+                        />
                         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                             {updates.map((item) => (
                                 <article
@@ -855,7 +811,7 @@ export default function Welcome() {
                                             {item.date}
                                         </span>
                                     </div>
-                                    <h3 className="mt-4 font-serif text-base font-semibold leading-5 text-stone-900">
+                                    <h3 className="mt-4 font-serif text-base leading-5 font-semibold text-stone-900">
                                         {item.title}
                                     </h3>
                                     <p className="mt-2 text-xs leading-5 text-stone-500">
@@ -875,7 +831,7 @@ export default function Welcome() {
 
                     {/* Accessibility / Information */}
                     <section className="border-y border-stone-200 bg-white">
-                        <div className="mx-auto grid container md:grid-cols-4">
+                        <div className="container mx-auto grid md:grid-cols-4">
                             {[
                                 [
                                     Landmark,
@@ -903,7 +859,7 @@ export default function Welcome() {
                                 return (
                                     <div
                                         key={title as string}
-                                        className="flex gap-4 border-b border-stone-200 p-5 last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0"
+                                        className="flex gap-4 border-b border-stone-200 p-5 last:border-b-0 md:border-r md:border-b-0 md:last:border-r-0"
                                     >
                                         <IconComponent className="h-7 w-7 shrink-0 stroke-[1.2] text-emerald-900" />
                                         <div>
@@ -923,7 +879,6 @@ export default function Welcome() {
 
                 {/* CTA + Footer Wrapper */}
                 <div className="relative overflow-hidden bg-emerald-950">
-
                     {/* ONE Shared Background Image */}
                     <div className="absolute inset-0">
                         <img
@@ -938,7 +893,7 @@ export default function Welcome() {
                     {/* CTA */}
                     <section id="contact" className="relative">
                         {/* <div className="absolute inset-0 bg-gradient-to-r from-emerald-950 via-emerald-950/95 to-emerald-900/80" /> */}
-                        <div className="relative mx-auto flex container flex-col items-start justify-between gap-6 px-4 py-10 md:flex-row md:items-center md:px-6">
+                        <div className="relative container mx-auto flex flex-col items-start justify-between gap-6 px-4 py-10 md:flex-row md:items-center md:px-6">
                             <div>
                                 <h2 className="font-serif text-2xl text-white">
                                     Your Voice Matters
@@ -972,7 +927,7 @@ export default function Welcome() {
                     {/* Footer */}
                     <footer className="relative text-white">
                         {/* <div className="mx-auto grid max-w-7xl gap-8 border-b border-white/10 px-4 py-9 md:grid-cols-12 md:px-6"> */}
-                        <div className="mx-auto grid container gap-8 border-b border-white/10 px-4 py-9 md:grid-cols-12 md:px-6">
+                        <div className="container mx-auto grid gap-8 border-b border-white/10 px-4 py-9 md:grid-cols-12 md:px-6">
                             <div className="md:col-span-4">
                                 <div className="flex items-center gap-3">
                                     <div className="h-10 w-10 overflow-hidden rounded-full border border-white/20">
@@ -1002,47 +957,71 @@ export default function Welcome() {
                             </div>
 
                             <div className="md:col-span-2">
-                                <h3 className="text-sm font-semibold uppercase tracking-wider text-amber-400">
+                                <h3 className="text-sm font-semibold tracking-wider text-amber-400 uppercase">
                                     Quick Links
                                 </h3>
                                 <div className="mt-3 space-y-2 text-sm text-emerald-100/60">
-                                    <a href="#about" className="block hover:text-white">
+                                    <a
+                                        href="#about"
+                                        className="block hover:text-white"
+                                    >
                                         About
                                     </a>
-                                    <a href="#constituency" className="block hover:text-white">
+                                    <a
+                                        href="#constituency"
+                                        className="block hover:text-white"
+                                    >
                                         Constituency
                                     </a>
-                                    <a href="#parliamentary-work" className="block hover:text-white">
+                                    <a
+                                        href="#parliamentary-work"
+                                        className="block hover:text-white"
+                                    >
                                         Parliamentary Work
                                     </a>
-                                    <a href="#initiatives" className="block hover:text-white">
+                                    <a
+                                        href="#initiatives"
+                                        className="block hover:text-white"
+                                    >
                                         Initiatives
                                     </a>
                                 </div>
                             </div>
 
                             <div className="md:col-span-2">
-                                <h3 className="text-sm font-semibold uppercase tracking-wider text-amber-400">
+                                <h3 className="text-sm font-semibold tracking-wider text-amber-400 uppercase">
                                     News & Media
                                 </h3>
                                 <div className="mt-3 space-y-2 text-sm text-emerald-100/60">
-                                    <a href="#news" className="block hover:text-white">
+                                    <a
+                                        href="#news"
+                                        className="block hover:text-white"
+                                    >
                                         Latest Updates
                                     </a>
-                                    <a href="#gallery" className="block hover:text-white">
+                                    <a
+                                        href="#gallery"
+                                        className="block hover:text-white"
+                                    >
                                         Gallery
                                     </a>
-                                    <a href="#" className="block hover:text-white">
+                                    <a
+                                        href="#"
+                                        className="block hover:text-white"
+                                    >
                                         Videos
                                     </a>
-                                    <a href="#" className="block hover:text-white">
+                                    <a
+                                        href="#"
+                                        className="block hover:text-white"
+                                    >
                                         Press Releases
                                     </a>
                                 </div>
                             </div>
 
                             <div className="md:col-span-2">
-                                <h3 className="text-sm font-semibold uppercase tracking-wider text-amber-400">
+                                <h3 className="text-sm font-semibold tracking-wider text-amber-400 uppercase">
                                     Constituency Office
                                 </h3>
                                 <div className="mt-3 space-y-2 text-sm leading-4 text-emerald-100/60">
@@ -1055,7 +1034,7 @@ export default function Welcome() {
                             </div>
 
                             <div className="md:col-span-2">
-                                <h3 className="text-sm font-semibold uppercase tracking-wider text-amber-400">
+                                <h3 className="text-sm font-semibold tracking-wider text-amber-400 uppercase">
                                     Stay Connected
                                 </h3>
                                 <p className="mt-3 text-sm leading-5 text-emerald-100/60">
@@ -1078,8 +1057,11 @@ export default function Welcome() {
                             </div>
                         </div>
 
-                        <div className="mx-auto flex container flex-col gap-3 px-4 py-4 text-sm text-emerald-100/40 md:flex-row md:items-center md:justify-between md:px-6">
-                            <p>© 2026 Dr. Sunsila Jabrin Priyanka, MP Sherpur–1. All Rights Reserved.</p>
+                        <div className="container mx-auto flex flex-col gap-3 px-4 py-4 text-sm text-emerald-100/40 md:flex-row md:items-center md:justify-between md:px-6">
+                            <p>
+                                © 2026 Dr. Sunsila Jabrin Priyanka, MP
+                                Sherpur–1. All Rights Reserved.
+                            </p>
                             <div className="flex gap-4">
                                 <a href="#">Privacy Policy</a>
                                 <a href="#">Accessibility</a>
