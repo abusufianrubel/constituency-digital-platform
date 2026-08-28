@@ -155,6 +155,24 @@ const gallery = [
     `${A}/community-5.jpg`,
 ];
 
+const leaders = [
+    {
+        name: 'Shaheed President Ziaur Rahman',
+        image: `${A}/leader-ziaur-rahman.jpg`,
+        entrance: 'animate-leader-from-left',
+    },
+    {
+        name: 'Begum Khaleda Zia',
+        image: `${A}/leader-khaleda-zia.jpg`,
+        entrance: 'animate-leader-from-bottom',
+    },
+    {
+        name: 'Tarique Rahman',
+        image: `${A}/leader-tarique-rahman.jpg`,
+        entrance: 'animate-leader-from-right',
+    },
+];
+
 function SectionTitle({
     eyebrow,
     title,
@@ -223,6 +241,7 @@ export default function Welcome() {
             <div className="min-h-screen bg-[#f8f7f2] text-stone-800">
                 {/* Header */}
                 <header className="sticky top-0 z-50 border-b border-stone-200 bg-white/95 backdrop-blur">
+                    {/* <div className="container mx-auto flex items-center justify-between px-4 py-3 md:px-6"> */}
                     <div className="container mx-auto flex items-center justify-between px-4 py-3 md:px-6">
                         <a href="#" className="flex items-center gap-3">
                             <div className="h-11 w-11 overflow-hidden rounded-full border border-stone-200 bg-stone-100">
@@ -273,13 +292,23 @@ export default function Welcome() {
                             ))}
                         </nav>
 
-                        <a
-                            href="#contact"
-                            // className="hidden bg-emerald-950 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-800 md:block"
-                            className="hidden rounded-full bg-emerald-800 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 ease-out hover:scale-105 hover:bg-emerald-950 hover:shadow-lg hover:shadow-emerald-950/30 md:block"
-                        >
-                            Contact Office
-                        </a>
+                        <div className="hidden items-center gap-3 md:flex">
+                            {/* Login */}
+                            <a
+                                href="/login"
+                                className="inline-flex h-10 items-center justify-center rounded-full border border-emerald-800 px-5 text-sm font-semibold text-emerald-900 transition-all duration-300 hover:scale-105 hover:bg-emerald-50"
+                            >
+                                Login
+                            </a>
+
+                            {/* Contact Office */}
+                            <a
+                                href="#contact"
+                                className="inline-flex h-10 items-center justify-center rounded-full bg-emerald-800 px-5 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:bg-emerald-950 hover:shadow-lg hover:shadow-emerald-950/20"
+                            >
+                                Contact Office
+                            </a>
+                        </div>
 
                         <button
                             onClick={() => setMenuOpen(!menuOpen)}
@@ -432,6 +461,44 @@ export default function Welcome() {
                 </section>
 
                 <main>
+                    {/* Inspiring Leadership */}
+                    <section
+                        aria-labelledby="leadership-heading"
+                        className="container mx-auto px-4 pt-14 md:px-6 md:pt-16"
+                    >
+                        <div className="mb-7 md:mb-9">
+                            <p className="mb-1 text-xs font-semibold tracking-[0.22em] text-emerald-800 uppercase">
+                                Our legacy
+                            </p>
+                            <h2
+                                id="leadership-heading"
+                                className="max-w-3xl font-serif text-2xl font-semibold tracking-tight text-stone-900 md:text-3xl"
+                            >
+                                Our Inspiring Leadership Throughout History
+                            </h2>
+                            <div className="mt-2 h-0.5 w-12 bg-amber-500" />
+                        </div>
+
+                        <div className="grid gap-5 md:grid-cols-3 md:gap-6">
+                            {leaders.map((leader) => (
+                                <article
+                                    key={leader.name}
+                                    className={`${leader.entrance} group relative isolate overflow-hidden rounded-2xl bg-stone-900 shadow-[0_16px_38px_-20px_rgba(28,25,23,0.7)] ring-1 ring-stone-900/10 motion-reduce:animate-none`}
+                                >
+                                    <img
+                                        src={leader.image}
+                                        alt={`Portrait of ${leader.name}`}
+                                        className="aspect-[4/5] w-full object-cover grayscale transition duration-700 ease-out group-focus-within:scale-105 group-focus-within:grayscale-0 group-hover:scale-105 group-hover:grayscale-0"
+                                    />
+                                    <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-stone-950/90 via-stone-950/5 to-transparent" />
+                                    <h3 className="absolute right-5 bottom-5 left-5 font-serif text-lg font-semibold text-white drop-shadow-sm md:text-xl">
+                                        {leader.name}
+                                    </h3>
+                                </article>
+                            ))}
+                        </div>
+                    </section>
+
                     {/* About */}
                     <section
                         id="about"
