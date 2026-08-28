@@ -142,55 +142,8 @@
     }
 }
 
-@keyframes leader-enter-from-left {
-    from {
-        opacity: 0;
-        transform: translate3d(-3rem, 0, 0);
-    }
-
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
-}
-
-@keyframes leader-enter-from-right {
-    from {
-        opacity: 0;
-        transform: translate3d(3rem, 0, 0);
-    }
-
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
-}
-
-@keyframes leader-enter-from-bottom {
-    from {
-        opacity: 0;
-        transform: translate3d(0, 3rem, 0);
-    }
-
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
-}
-
-@layer utilities {
-    .animate-leader-from-left {
-        animation: leader-enter-from-left 800ms cubic-bezier(0.22, 1, 0.36, 1)
-            120ms both;
-    }
-
-    .animate-leader-from-bottom {
-        animation: leader-enter-from-bottom 800ms cubic-bezier(0.22, 1, 0.36, 1)
-            240ms both;
-    }
-
-    .animate-leader-from-right {
-        animation: leader-enter-from-right 800ms cubic-bezier(0.22, 1, 0.36, 1)
-            360ms both;
-    }
+@utility font-bangla {
+    font-family:
+        'Noto Sans Bengali', 'Hind Siliguri', 'Nirmala UI', Vrinda,
+        var(--font-sans);
 }
